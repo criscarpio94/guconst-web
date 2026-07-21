@@ -1,0 +1,282 @@
+<!-- VISTA DE LA PANTALLA PRINCIPAL O INICIO NO TIENE HEAD PORQUE SE INYECTA DEL CONTENIDO PRINCIPA -->
+
+<!-- PORTADA PRINCIPAL -->
+<section class="hero">
+
+    <!-- IMAGEN DE FONTO CON EFECTO -->
+    <img
+        class="hero-imagen-fondo"
+        src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=1600&h=900&fit=crop&auto=format"
+        alt="Maquinaria de construcción en obra"
+        loading="eager"
+    >
+    <div class="hero-degradado"></div>
+
+    <!-- CONTENIDO HERO -->
+    <div class="hero-contenido">
+
+        <!-- ETIQUETA CON ANIMACION -->
+        <div class="hero-etiqueta">
+            <span class="hero-etiqueta-punto"></span>
+            DESDE 2017 &nbsp;·&nbsp; ECUADOR
+        </div>
+
+        <!-- TITULO PRINCIPAL DE LA CONSTRUCTORA -->
+        <h1 class="hero-titulo">
+            CONSTRUCTORA
+            <span class="hero-titulo-marca">GUERRERO U</span>
+            <span class="hero-titulo-sub">GUCONST CIA. LTDA.</span>
+        </h1>
+
+        <!-- DESCRIPCION DE LA CONSTRUCTORA -->
+        <p class="hero-descripcion">
+            Especialistas en construcción de obras de ingeniería civil y alquiler
+            de maquinaria pesada. Potencia, experiencia y compromiso con cada proyecto.
+        </p>
+
+        <!-- BOTONES -->
+        <div class="hero-botones">
+            <button id="btn-ir-servicios" class="btn-primario">
+                VER SERVICIOS
+            </button>
+            <button id="btn-ir-contacto" class="btn-secundario">
+                CONTÁCTENOS
+            </button>
+        </div>
+    </div>
+
+    <!-- INDICADOR SCROLL -->
+    <div class="hero-scroll">
+        <span>SCROLL</span>
+        <div class="hero-scroll-linea"></div>
+    </div>
+</section>
+
+<!-- SECCION QUIENES SOMOS -->
+<section class="seccion-nosotros">
+    <div class="contenedor">
+        <div class="nosotros-grid">
+
+           <!-- IMAGEN TEMPORA REFERENCIAL -->
+            <div class="nosotros-imagen-contenedor">
+                <img
+                    class="nosotros-imagen"
+                    src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=700&h=500&fit=crop&auto=format"
+                    alt="Excavadora trabajando en obra"
+                    loading="lazy"
+                >
+                <div class="nosotros-badge">
+                    <div class="nosotros-badge-num">7+</div>
+                    <div class="nosotros-badge-txt">AÑOS DE<br>EXPERIENCIA</div>
+                </div>
+            </div>
+
+            <!-- TEXTO PARA QUIENES SOMOS -->
+            <div class="nosotros-texto">
+                <span class="seccion-etiqueta">QUIÉNES SOMOS</span>
+                <h2 class="seccion-titulo" style="text-align:left; margin-bottom:1.25rem;">
+                    SOLUCIONES INTEGRALES EN INGENIERÍA Y MAQUINARIA
+                </h2>
+                <p>
+                    Constructora Guerrero U Guconst Cia. Ltda., constituida el 26 de julio de
+                    2017, es una empresa ecuatoriana dedicada a la ejecución de obras de
+                    ingeniería civil y al alquiler de maquinaria pesada para la construcción.
+                </p>
+                <p>
+                    Contamos con un moderno parque de maquinaria y un equipo de profesionales
+                    comprometidos con la calidad, la seguridad y el cumplimiento de plazos en
+                    cada proyecto a lo largo de todo el Ecuador.
+                </p>
+
+                <!-- ETIQETAS A MANERA DE CARACTERISTICAS -->
+                <div class="nosotros-etiquetas">
+                    <span class="etiqueta-pill">Operadores Calificados</span>
+                    <span class="etiqueta-pill">Atención Personalizada</span>
+                    <span class="etiqueta-pill">Cobertura Nacional</span>
+                    <span class="etiqueta-pill">Equipos Modernos</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- SECCION DE LAS ESTADISTICAS -->
+<section class="seccion-estadisticas" id="seccion-estadisticas">
+    <div class="contenedor">
+        <div class="estadisticas-grid">
+
+            <div class="estadistica-item">
+                <div class="estadistica-numero" id="stat-anios" data-sufijo="+">0+</div>
+                <div class="estadistica-etiqueta">AÑOS DE EXPERIENCIA</div>
+            </div>
+
+            <div class="estadistica-item">
+                <div class="estadistica-numero" id="stat-proyectos" data-sufijo="+">0+</div>
+                <div class="estadistica-etiqueta">PROYECTOS COMPLETADOS</div>
+            </div>
+
+            <div class="estadistica-item">
+                <div class="estadistica-numero" id="stat-maquinaria" data-sufijo="">0</div>
+                <div class="estadistica-etiqueta">EQUIPOS EN CATÁLOGO</div>
+            </div>
+
+            <div class="estadistica-item">
+                <div class="estadistica-numero" id="stat-clientes" data-sufijo="%">0%</div>
+                <div class="estadistica-etiqueta">COMPROMISO CON EL CLIENTE</div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- SECCION PARA LOS SERVICIOS -->
+<section class="seccion-servicios-preview">
+    <div class="contenedor">
+        <div class="seccion-encabezado">
+            <span class="seccion-etiqueta">LO QUE HACEMOS</span>
+            <h2 class="seccion-titulo">NUESTROS SERVICIOS</h2>
+            <p class="seccion-subtitulo">
+                Ofrecemos dos líneas de servicio complementarias para cubrir todas
+                las necesidades de tu proyecto de construcción.
+            </p>
+        </div>
+
+        <div class="servicios-grid">
+
+           <!-- TARJETA PARA INGENIERIA CIVIL -->
+            <article class="servicio-tarjeta" data-pagina="servicios" role="button" tabindex="0">
+                <div class="servicio-imagen-contenedor">
+                    <img
+                        class="servicio-imagen"
+                        src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?w=700&h=400&fit=crop&auto=format"
+                        alt="Ingeniería civil - construcción de puentes"
+                        loading="lazy"
+                    >
+                </div>
+                <div class="servicio-cuerpo">
+                    <div class="servicio-icono-wrap">
+                        <!-- Ícono SVG: edificio VECTO DEL ICONO -->
+                        <svg viewBox="0 0 24 24">
+                            <path d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/>
+                        </svg>
+                    </div>
+                    <h3 class="servicio-nombre">INGENIERÍA CIVIL</h3>
+                    <p class="servicio-descripcion">
+                        Construcción de obras civiles: puentes vehiculares, vías, alcantarillados,
+                        plataformas industriales y movimiento de tierras a gran escala.
+                    </p>
+                    <span class="servicio-enlace">
+                        Ver más
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M5 12h14M12 5l7 7-7 7"/>
+                        </svg>
+                    </span>
+                </div>
+            </article>
+
+            <!-- TARJETA PARA ALQUILER DE MAQUINARIA -->
+            <article class="servicio-tarjeta" data-pagina="servicios" role="button" tabindex="0">
+                <div class="servicio-imagen-contenedor">
+                    <img
+                        class="servicio-imagen"
+                        src="https://images.unsplash.com/photo-1544979590-37e9b47eb705?w=700&h=400&fit=crop&auto=format"
+                        alt="Maquinaria pesada para alquiler"
+                        loading="lazy"
+                    >
+                </div>
+                <div class="servicio-cuerpo">
+                    <div class="servicio-icono-wrap">
+                        <!-- Ícono SVG: cuadrícula VECTOR PARA EL ICONO-->
+                        <svg viewBox="0 0 24 24">
+                            <path d="M9 3H5a2 2 0 00-2 2v4m6-6h10a2 2 0 012 2v4M9 3v18m0 0h10a2 2 0 002-2V9M9 21H5a2 2 0 01-2-2V9m0 0h18"/>
+                        </svg>
+                    </div>
+                    <h3 class="servicio-nombre">ALQUILER DE MAQUINARIA</h3>
+                    <p class="servicio-descripcion">
+                        Catálogo de maquinaria pesada disponible para alquiler: excavadoras,
+                        retroexcavadoras, volquetes, bulldozers, grúas y más.
+                    </p>
+                    <span class="servicio-enlace">
+                        Ver catálogo
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M5 12h14M12 5l7 7-7 7"/>
+                        </svg>
+                    </span>
+                </div>
+            </article>
+
+        </div>
+    </div>
+</section>
+
+<!-- BANNER PARA CONTACTO SOLICITAR INFORMACION -->
+<section class="seccion-cta">
+    <div class="contenedor">
+        <h2 class="cta-titulo">
+            ¿NECESITAS MAQUINARIA PARA TU PROYECTO?
+        </h2>
+        <p class="cta-subtitulo">
+            Selecciona los equipos que necesitas y solicita una proforma sin costo.
+            Te contactamos en menos de 24 horas.
+        </p>
+        <button id="btn-ir-proforma" class="btn-cta">
+            SOLICITAR PROFORMA
+        </button>
+    </div>
+</section>
+
+<!-- SECCION DE TESTIMONOS SERA OPCIONAL -->
+<section class="seccion-testimonios">
+    <div class="contenedor">
+        <div class="seccion-encabezado">
+            <span class="seccion-etiqueta">LO QUE DICEN NUESTROS CLIENTES</span>
+            <h2 class="seccion-titulo">TESTIMONIOS</h2>
+        </div>
+
+        <div class="testimonios-grid">
+
+            <article class="testimonio-tarjeta">
+                <div class="testimonio-estrellas">
+                    <span class="estrella">★</span><span class="estrella">★</span>
+                    <span class="estrella">★</span><span class="estrella">★</span>
+                    <span class="estrella">★</span>
+                </div>
+                <p class="testimonio-texto">
+                    "Excelente servicio y maquinaria en perfecto estado. Cumplieron con los
+                    plazos acordados sin ningún inconveniente. Muy profesionales."
+                </p>
+                <p class="testimonio-autor">Ing. Carlos Morales</p>
+                <p class="testimonio-cargo">Director de Obras – GAD Esmeraldas</p>
+            </article>
+
+            <article class="testimonio-tarjeta">
+                <div class="testimonio-estrellas">
+                    <span class="estrella">★</span><span class="estrella">★</span>
+                    <span class="estrella">★</span><span class="estrella">★</span>
+                    <span class="estrella">★</span>
+                </div>
+                <p class="testimonio-texto">
+                    "La retroexcavadora y el rodillo compactador trabajaron sin fallas durante
+                    todo el proyecto. El proceso de proforma fue muy ágil. Muy recomendados."
+                </p>
+                <p class="testimonio-autor">Arq. Patricia Vega</p>
+                <p class="testimonio-cargo">Jefe de Proyectos – Palmeras del Ecuador</p>
+            </article>
+
+            <article class="testimonio-tarjeta">
+                <div class="testimonio-estrellas">
+                    <span class="estrella">★</span><span class="estrella">★</span>
+                    <span class="estrella">★</span><span class="estrella">★</span>
+                    <span class="estrella">★</span>
+                </div>
+                <p class="testimonio-texto">
+                    "Proceso de solicitud de proforma muy ágil. En pocas horas tenía el
+                    presupuesto y en dos días la maquinaria ya estaba en obra."
+                </p>
+                <p class="testimonio-autor">Sr. Roberto Cifuentes</p>
+                <p class="testimonio-cargo">Constructor Independiente – Pichincha</p>
+            </article>
+
+        </div>
+    </div>
+</section>
