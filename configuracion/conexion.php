@@ -15,9 +15,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
     exit;
 }
 
+$servidor = $_SERVER['SERVER_NAME'] ?? '';
+
 
 //Ajuste para detectar automaticamente el entorno 
-if ($_SERVER['SERVER_NAME'] == 'localhost' || $_SERVER['SERVER_NAME'] == '127.0.0.1') {
+if (strpos($servidor, 'localhost') !== false || $servidor == '127.0.0.1') {
    
     //Si la condicion se cumple se define los parametros de conexion para XAMMP de manera local
     define('BD_HOST', 'localhost');
@@ -33,7 +35,7 @@ if ($_SERVER['SERVER_NAME'] == 'localhost' || $_SERVER['SERVER_NAME'] == '127.0.
     define('BD_NOMBRE', 'u613566817_guconst_db');    
 }
 
-define('BD_CHARSET', 'utf8mb4')
+define('BD_CHARSET', 'utf8mb4');
 
 //Creacion de la conexion con MySqli
 $conexion = new mysqli(BD_HOST, BD_USUARIO, BD_CONTRASENIA, BD_NOMBRE);
