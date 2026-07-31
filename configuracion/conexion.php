@@ -15,18 +15,29 @@ if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
     exit;
 }
 
-//Definicion deparametros de conexion con xamp
-define('BD_HOST',       'localhost');
-define('BD_USUARIO',    'root');
-define('BD_CONTRASENIA', '');          // ojo xamp no requiere contraseña
-define('BD_NOMBRE',     'guconst_db');
-define('BD_CHARSET',    'utf8mb4');
+//Ajuste para detectar automaticamente el entorno 
+if ($_SERVER['SERVER_NAME'] == 'localhost' || $_SERVER['SERVER_NAME'] == '127.0.0.1') {
+   
+    //Si la condicion se cumple se define los parametros de conexion para XAMMP de manera local
+    define('BD_HOST', 'localhost');
+    define('BD_USUARIO', 'root');
+    define('BD_CONTRASENIA', '');
+    define('BD_NOMBRE', 'guconst_db');
+} else {
+    
+    //caso contrario se crean los parametros para conexion a hosting, hostinger    
+    define('BD_HOST', 'localhost');
+    define('BD_USUARIO', 'u613566817_admin_guconst');
+    define('BD_CONTRASENIA', 'Guconstweb2026');
+    define('BD_NOMBRE', 'u613566817_guconst_db');    
+}
 
+define('BD_CHARSET', 'utf8mb4')
 
 //Creacion de la conexion con MySqli
 $conexion = new mysqli(BD_HOST, BD_USUARIO, BD_CONTRASENIA, BD_NOMBRE);
 
-//Condicion para compromar si hubo algun error al momento de conectar
+//Condicion para comprobar si hubo algun error al momento de conectar
 if ($conexion->connect_error) {
     http_response_code(500);
     echo json_encode([
