@@ -9,7 +9,7 @@
  *   fetch('api/inicio.php').then(r => r.json()).then(datos => ...)
  */
 
-require_once '../configuracion/conexion.php';
+require_once __DIR__ . '/../configuracion/conexion.php';
 
 $respuesta = [
     'exito'        => true,
