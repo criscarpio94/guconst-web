@@ -46,7 +46,7 @@ if ($conexion->connect_error) {
     echo json_encode([
         'exito'   => false,
         'mensaje' => 'Error de conexión a la base de datos: ' . $conexion->connect_error,
-        'codigo'  => $conexion->connect_errno
+        'codigo'  => $conexion->connect_error
     ]);
     exit; // Si no hay conexion se detiene la ejecucion
 }
