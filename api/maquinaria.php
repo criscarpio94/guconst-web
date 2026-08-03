@@ -1,7 +1,7 @@
 <?php
 // Devuelve el catálogo de maquinaria desde MySQL en formato JSON.
  
-require_once __DIR__ . '../configuracion/conexion.php';
+require_once '../configuracion/conexion.php';
 
 $respuesta = ['exito' => true, 'datos' => [], 'total' => 0];
 
