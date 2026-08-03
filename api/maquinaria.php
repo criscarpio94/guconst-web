@@ -1,7 +1,7 @@
 <?php
 // Devuelve el catálogo de maquinaria desde MySQL en formato JSON.
  
-require_once '../configuracion/conexion.php';
+require_once __DIR__ . '../configuracion/conexion.php';
 
 $respuesta = ['exito' => true, 'datos' => [], 'total' => 0];
 
@@ -20,7 +20,7 @@ try {
         $tipos        .= 's';
     }
 
-    $sql = 'SELECT * FROM maquinaria WHERE'
+    $sql = 'SELECT * FROM maquinaria WHERE '
          . implode(' AND ', $condiciones)
          . ' ORDER BY nombre ASC';
 
