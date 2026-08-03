@@ -1,0 +1,254 @@
+<!-- Vista para la pantalla de servicios -->
+
+<!-- Encabezado -->
+<section class="servicios-cabecera">
+    <div class="contenedor">
+        <span class="seccion-etiqueta">LO QUE OFRECEMOS</span>
+        <h1 class="servicios-titulo-pag">NUESTROS SERVICIOS</h1>
+    </div>
+</section>
+
+ <!-- Navegacion con scroll -->
+<div class="tabs-nav" id="tabs-servicios">
+    <div class="contenedor tabs-contenedor">
+        <button class="tab-btn activo" data-tab="civil">
+            INGENIERÍA CIVIL
+        </button>
+        <button class="tab-btn" data-tab="maquinaria">
+            ALQUILER DE MAQUINARIA
+        </button>
+    </div>
+</div>
+
+<!-- PANEL PARA SERVICIO DE INGENIERIA CIVIL -->
+<div id="panel-civil" class="tab-panel activo">
+    <div class="contenedor">
+
+        <div class="panel-encabezado">
+            <h2 class="panel-titulo">CONSTRUCCIÓN DE OBRAS CIVILES</h2>
+            <p class="panel-descripcion">
+                Ejecutamos proyectos de infraestructura con altos estándares de calidad,
+                cumplimiento de normas técnicas y entrega en los plazos acordados.
+            </p>
+        </div>
+
+        
+         <!-- Tarjetas de servicios de ingenieria -->
+        <div class="civil-grid">
+
+            <article class="civil-tarjeta">
+                <span class="civil-icono">🏗️</span>
+                <h3>Construcción de Puentes</h3>
+                <p>Diseño y construcción de puentes vehiculares y peatonales de hormigón armado y metálicos en todo el Ecuador.</p>
+            </article>
+
+            <article class="civil-tarjeta">
+                <span class="civil-icono">🛣️</span>
+                <h3>Obras Viales</h3>
+                <p>Apertura, rehabilitación y mejoramiento de vías, carreteras rurales y caminos de acceso.</p>
+            </article>
+
+            <article class="civil-tarjeta">
+                <span class="civil-icono">🌊</span>
+                <h3>Alcantarillado y Drenaje</h3>
+                <p>Instalación de redes pluviales, sanitarias y sistemas de drenaje urbano y rural.</p>
+            </article>
+
+            <article class="civil-tarjeta">
+                <span class="civil-icono">🏭</span>
+                <h3>Plataformas Industriales</h3>
+                <p>Preparación de terrenos y plataformas para industrias, bodegas y plantas de producción.</p>
+            </article>
+
+            <article class="civil-tarjeta">
+                <span class="civil-icono">⛏️</span>
+                <h3>Movimiento de Tierras</h3>
+                <p>Corte, relleno, compactación y movimiento masivo de volúmenes de tierra y roca.</p>
+            </article>
+
+            <article class="civil-tarjeta">
+                <span class="civil-icono">🏔️</span>
+                <h3>Obras de Contención</h3>
+                <p>Muros de contención, gaviones, taludes y obras de estabilización de terrenos inestables.</p>
+            </article>
+
+        </div>
+
+        
+        <!-- Banner contacto o solicitud en el panel -->
+        <div class="civil-cta">
+            <div>
+                <h3>¿Tienes un proyecto en mente?</h3>
+                <p>Cuéntanos tu obra y te damos una evaluación técnica sin costo.</p>
+            </div>
+            <button class="btn-primario" id="btn-ir-catalogo">
+                VER CATÁLOGO DE MAQUINARIA →
+            </button>
+        </div>
+
+    </div>
+</div>
+
+
+<!-- PANEL PARA ALQUILER DE MAQUINARIA -->
+<div id="panel-maquinaria" class="tab-panel">
+    <div class="contenedor">
+
+        <div class="maquinaria-header">
+            <div>
+                <h2 class="panel-titulo">CATÁLOGO DE MAQUINARIA</h2>
+                <p id="texto-total-maquinas" class="maquinaria-subtitulo">Cargando equipos...</p>
+            </div>
+        </div>
+
+        <!-- Botones de filtro para categoría -->
+        <div class="filtros-categorias" id="filtros-categorias">
+            <button class="filtro-btn activo" data-categoria="Todas"              onclick="filtrarCategoria('Todas')">Todas</button>
+            <button class="filtro-btn"        data-categoria="Excavación"         onclick="filtrarCategoria('Excavación')">Excavación</button>
+            <button class="filtro-btn"        data-categoria="Transporte"         onclick="filtrarCategoria('Transporte')">Transporte</button>
+            <button class="filtro-btn"        data-categoria="Nivelación"         onclick="filtrarCategoria('Nivelación')">Nivelación</button>
+            <button class="filtro-btn"        data-categoria="Compactación"       onclick="filtrarCategoria('Compactación')">Compactación</button>
+            <button class="filtro-btn"        data-categoria="Movimiento de Tierras" onclick="filtrarCategoria('Movimiento de Tierras')">Mov. de Tierras</button>
+            <button class="filtro-btn"        data-categoria="Carga y Transporte" onclick="filtrarCategoria('Carga y Transporte')">Carga y Transporte</button>
+            <button class="filtro-btn"        data-categoria="Izaje"              onclick="filtrarCategoria('Izaje')">Izaje</button>
+        </div>
+
+        
+        <!-- Apartado donde servicios.js va a insertar las tarjetas de maquinaria de fomra dinamica y recibe la respuesta de la api maquinaria.php -->
+        <div class="maquinas-grilla" id="grilla-maquinaria">
+            <!-- Las tarjetas se insertan aquí por JavaScript -->
+            <div class="cargando-maquinas">
+                <div class="spinner"></div>
+                <p>Cargando catálogo desde la base de datos...</p>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+
+<!-- BARRA DE MANERA FLOTANTE PARA LA PROFORMA (se mostrara cuando el cliente seleccione maquinaria) -->
+<div class="barra-proforma" id="barra-proforma">
+    <div class="barra-proforma-info">
+        <span class="barra-contador" id="contador-seleccion">0</span>
+        <span>equipo(s) seleccionado(s) para proforma</span>
+    </div>
+    <div class="barra-proforma-acciones">
+        <button id="btn-abrir-proforma" class="btn-proforma-abrir">
+            SOLICITAR PROFORMA
+        </button>
+        <button onclick="limpiarSeleccion()" class="btn-limpiar-seleccion" title="Quitar selección">
+            ✕
+        </button>
+    </div>
+</div>
+
+
+<!-- FORMULARIO DE LA PROFORMA (cuando se da clic en solicitar proforma, se muestra) -->
+<div class="modal-overlay" id="modal-proforma" role="dialog" aria-modal="true" aria-labelledby="modal-titulo">
+
+    <div class="modal-contenedor">
+
+        <!-- Estado 1: Formulario -->
+        <div id="estado-formulario">
+
+            <!-- Cabecera -->
+            <div class="modal-cabecera">
+                <div>
+                    <h2 class="modal-titulo" id="modal-titulo">SOLICITAR PROFORMA</h2>
+                    <p class="modal-subtitulo">
+                        Equipos seleccionados: <span id="modal-num-maquinas">0</span>
+                    </p>
+                </div>
+                <button class="modal-cerrar" onclick="cerrarModal()" aria-label="Cerrar">✕</button>
+            </div>
+
+            <!-- Lista de máquinas seleccionadas -->
+            <div class="modal-maquinas-seleccionadas">
+                <p class="modal-maquinas-titulo">EQUIPOS INCLUIDOS EN LA PROFORMA:</p>
+                <ul id="lista-maquinas-modal" class="modal-lista-maquinas">
+                    <!-- Se llena por JavaScript -->
+                </ul>
+            </div>
+
+            <!-- Formulario -->
+            <form id="form-proforma" class="proforma-form" novalidate>
+
+                <div class="form-campo">
+                    <label for="pf-nombres">NOMBRES COMPLETOS *</label>
+                    <input type="text" id="pf-nombres" name="nombres_completos"
+                           placeholder="Juan Carlos Pérez López" required>
+                </div>
+
+                <div class="form-fila-2">
+                    <div class="form-campo">
+                        <label for="pf-correo">CORREO ELECTRÓNICO *</label>
+                        <input type="email" id="pf-correo" name="correo"
+                               placeholder="correo@ejemplo.com" required>
+                    </div>
+                    <div class="form-campo">
+                        <label for="pf-telefono">TELÉFONO / CELULAR *</label>
+                        <input type="tel" id="pf-telefono" name="telefono"
+                               placeholder="0999 999 999" required>
+                    </div>
+                </div>
+
+                <div class="form-fila-2">
+                    <div class="form-campo">
+                        <label for="pf-provincia">PROVINCIA *</label>
+                        <select id="pf-provincia" name="provincia" required>
+                            <option value="">Seleccione...</option>
+                            <option>Azuay</option><option>Bolívar</option>
+                            <option>Cañar</option><option>Carchi</option>
+                            <option>Chimborazo</option><option>Cotopaxi</option>
+                            <option>El Oro</option><option>Esmeraldas</option>
+                            <option>Galápagos</option><option>Guayas</option>
+                            <option>Imbabura</option><option>Loja</option>
+                            <option>Los Ríos</option><option>Manabí</option>
+                            <option>Morona Santiago</option><option>Napo</option>
+                            <option>Orellana</option><option>Pastaza</option>
+                            <option>Pichincha</option><option>Santa Elena</option>
+                            <option>Santo Domingo de los Tsáchilas</option>
+                            <option>Sucumbíos</option><option>Tungurahua</option>
+                            <option>Zamora Chinchipe</option>
+                        </select>
+                    </div>
+                    <div class="form-campo">
+                        <label for="pf-ciudad">CIUDAD *</label>
+                        <input type="text" id="pf-ciudad" name="ciudad"
+                               placeholder="Ej: Quito" required>
+                    </div>
+                </div>
+
+                <div class="form-campo">
+                    <label for="pf-mensaje">MENSAJE / DETALLES DEL PROYECTO</label>
+                    <textarea id="pf-mensaje" name="mensaje" rows="3"
+                              placeholder="Describe brevemente tu proyecto, duración estimada, ubicación de la obra..."></textarea>
+                </div>
+
+                <!-- Mensaje de error -->
+                <div class="form-error" id="proforma-error" style="display:none"></div>
+
+                <button type="submit" class="btn-enviar-proforma" id="btn-enviar-proforma">
+                    ENVIAR SOLICITUD DE PROFORMA
+                </button>
+                <p class="form-nota">* Campos obligatorios. Respondemos en máximo 24 horas hábiles.</p>
+
+            </form>
+        </div>
+
+        <!-- Estado 2: Éxito -->
+        <div id="estado-exito" style="display:none;">
+            <div class="exito-contenido">
+                <div class="exito-icono">✓</div>
+                <h3>¡SOLICITUD ENVIADA!</h3>
+                <p>Hemos recibido tu solicitud de proforma.</p>
+                <p>Nos contactaremos contigo en menos de <strong>24 horas hábiles</strong>.</p>
+                <button class="btn-primario" onclick="cerrarModal()" style="margin-top:1.5rem;">
+                    CERRAR
+                </button>
+            </div>
+        </div>
+
+    </div>
+</div>
