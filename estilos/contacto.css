@@ -1,4 +1,11 @@
-/*ESTILOS PARA EL APARTADO DE CONTACTO */
+/* ESTILOS PARA APARTADO DE CONTACTO*/
+
+/* Contenedor global */
+.contenedor {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
 
 /* Cabecera superior */
 .contacto-cabecera {
@@ -51,7 +58,7 @@
     color: white;
 }
 
-/* Layout Principal: 2 columnas para formulario y mapa*/
+/* Layout Principal: 2 columnas para formulario y mapa */
 .contacto-cuerpo { 
     padding: 4rem 0; 
 }
@@ -85,7 +92,20 @@
     gap: 1.1rem; 
 }
 
-/* Estilo para los titulos de cada campo del formulario */
+/* Estilo para los contenedores de cada campo */
+.form-campo {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Estilo para las filas de 2 campos (Correo/Tel y Provincia/Ciudad) */
+.form-fila-2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.1rem;
+}
+
+/* Estilo para los títulos de cada campo (LABELS) */
 .contacto-form label {
     display: block;
     font-family: var(--fuente-display);
@@ -96,7 +116,7 @@
     margin-bottom: 0.35rem;
 }
 
-/*Estilo visual para las entradas de texto del formulario*/
+/* Estilo visual para las entradas de texto e inputs */
 .contacto-form input[type="text"],
 .contacto-form input[type="email"],
 .contacto-form input[type="tel"],
@@ -129,7 +149,7 @@
     min-height: 110px;
 }
 
-/* Estilo para boton de Enviar */
+/* Estilo para botón de Enviar */
 .btn-enviar-contacto {
     width: 100%;
     background: var(--color-marca);
@@ -234,7 +254,7 @@
     text-align: center;
 }
 
-.contacto-whatsapp-hint p  { 
+.contacto-whatsapp-hint p { 
     color: #92400E; 
     font-size: 0.875rem; 
     font-weight: 600; 
@@ -245,21 +265,7 @@
     font-size: 0.75rem; 
 }
 
-/* Estilo para correo telefono etc */
-.form-fila-2 {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 1.1rem;
-}
-
-/* Estilo para contenedor global */
-.contenedor {
-    width: 90%;
-    max-width: 1200px;
-    margin: 0 auto;
-}
-
-/* ESTILO RESPONSIVO PARA DISPOSITIVOS MOVILES */
+/* ESTILO RESPONSIVO PARA DISPOSITIVOS MÓVILES */
 
 @media (max-width: 768px) {
     .contacto-layout { 
@@ -269,5 +275,10 @@
     
     .contacto-info-grid { 
         grid-template-columns: 1fr; 
+    }
+
+    /* Hace que los campos dobles se vuelvan 1 columna en celulares */
+    .form-fila-2 {
+        grid-template-columns: 1fr;
     }
 }
