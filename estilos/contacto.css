@@ -247,7 +247,7 @@
 
 /* ESTILO RESPONSIVO PARA DISPOSITIVOS MOVILES */
 
-@media (max-width: 900px) {
+@media (max-width: 768px) {
     .contacto-layout { 
         grid-template-columns: 1fr; 
         gap: 2.5rem; 
