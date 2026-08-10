@@ -1,0 +1,79 @@
+<!-- vistas/proyectos.html -->
+
+<!-- CABECERA -->
+<section class="proyectos-cabecera">
+    <div class="contenedor">
+        <span class="seccion-etiqueta">NUESTRA TRAYECTORIA</span>
+        <h1 class="proyectos-titulo-pag">PROYECTOS REALIZADOS</h1>
+        <p class="proyectos-subtitulo">
+            Más de 50 proyectos ejecutados en todo el Ecuador.
+            Cada obra refleja nuestro compromiso con la calidad.
+        </p>
+    </div>
+</section>
+
+<!-- FILTROS PARA BUSQUEDA -->
+<div class="proyectos-filtros-barra">
+    <div class="contenedor proyectos-filtros-contenedor">
+        <div class="filtros-grupo">
+            <span class="filtros-etiqueta">Categoría:</span>
+            <div class="filtros-lista" id="filtros-categoria">
+                <button class="filtro-btn activo" data-filtro-tipo="categoria" data-filtro-valor="Todos">Todos</button>
+                <button class="filtro-btn" data-filtro-tipo="categoria" data-filtro-valor="Ingeniería Civil">Ingeniería Civil</button>
+                <button class="filtro-btn" data-filtro-tipo="categoria" data-filtro-valor="Vialidad">Vialidad</button>
+                <button class="filtro-btn" data-filtro-tipo="categoria" data-filtro-valor="Movimiento de Tierras">Mov. de Tierras</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- GALERÍA DE PROYECTOS -->
+<section class="proyectos-galeria">
+    <div class="contenedor">
+
+        <!-- Contador de resultados -->
+        <p class="proyectos-contador" id="proyectos-contador">Cargando proyectos...</p>
+
+        <!-- Para que JavaScript inserte las tarjetas aquí -->
+        <div class="proyectos-grilla" id="grilla-proyectos">
+            <div class="cargando-proyectos">
+                <div class="spinner"></div>
+                <p>Cargando proyectos...</p>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<!--DETALLE DEL PROYECTO -->
+<div class="modal-overlay" id="modal-proyecto">
+    <div class="modal-contenedor modal-proyecto-contenedor">
+
+        <button class="modal-cerrar-abs" onclick="cerrarModalProyecto()" aria-label="Cerrar">✕</button>
+
+        <div class="proyecto-modal-imagen-wrap">
+            <img id="modal-proy-imagen" src="" alt="" class="proyecto-modal-imagen">
+            <div class="proyecto-modal-badges">
+                <span class="proy-badge-anio" id="modal-proy-anio"></span>
+                <span class="proy-badge-cat"  id="modal-proy-categoria"></span>
+            </div>
+        </div>
+
+        <div class="proyecto-modal-cuerpo">
+            <h2 class="proyecto-modal-titulo" id="modal-proy-nombre"></h2>
+            <p class="proyecto-modal-ubicacion" id="modal-proy-ubicacion">
+                <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a2 2 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
+                </svg>
+                <span></span>
+            </p>
+            <p class="proyecto-modal-descripcion" id="modal-proy-descripcion"></p>
+            <div class="proyecto-modal-cliente">
+                <span class="cliente-etiqueta">CLIENTE</span>
+                <span class="cliente-nombre" id="modal-proy-cliente"></span>
+            </div>
+        </div>
+
+    </div>
+</div>
