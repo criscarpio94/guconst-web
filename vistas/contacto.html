@@ -1,0 +1,186 @@
+<!-- VISTA PARA EL APARTADO DE CONTACTO -->
+
+<!-- CABECERA -->
+<section class="contacto-cabecera">
+    <div class="contenedor">
+        <span class="seccion-etiqueta">ESTAMOS AQUÍ PARA AYUDARTE</span>
+        <h1 class="contacto-titulo-pag">CONTÁCTENOS</h1>
+    </div>
+</section>
+
+<!-- BARRA DE INFORMACION RAPIDA -->
+<div class="contacto-info-barra">
+    <div class="contenedor contacto-info-grid">
+        <div class="contacto-info-item">
+            <span class="contacto-info-icono">📞</span>
+            <div>
+                <p class="contacto-info-etiqueta">Teléfono</p>
+                <p class="contacto-info-valor">+593 99 999 9999</p>
+            </div>
+        </div>
+        <div class="contacto-info-item">
+            <span class="contacto-info-icono">✉️</span>
+            <div>
+                <p class="contacto-info-etiqueta">Correo</p>
+                <p class="contacto-info-valor">info@guconst.com.ec</p>
+            </div>
+        </div>
+        <div class="contacto-info-item">
+            <span class="contacto-info-icono">🕐</span>
+            <div>
+                <p class="contacto-info-etiqueta">Horario</p>
+                <p class="contacto-info-valor">Lun–Vie: 8:00–17:00 · Sáb: 8:00–13:00</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- CONTENIDO PRINCIPAL: Formulario MAS EL MAPA-->
+<section class="contacto-cuerpo">
+    <div class="contenedor contacto-layout">
+
+        <!--COLUMNA IZQUIERDA PARA EL FORMULAIO -->
+        <div class="contacto-formulario-col">
+            <h2 class="contacto-form-titulo">ENVÍANOS UN MENSAJE</h2>
+            <p class="contacto-form-subtitulo">Completa el formulario y te respondemos a la brevedad.</p>
+
+            <!-- Formulario -->
+            <form id="form-contacto" class="contacto-form" novalidate>
+
+                <div class="form-campo">
+                    <label for="ct-nombres">NOMBRES COMPLETOS *</label>
+                    <input type="text" id="ct-nombres" placeholder="Juan Carlos Pérez López" required>
+                </div>
+
+                <div class="form-fila-2">
+                    <div class="form-campo">
+                        <label for="ct-correo">CORREO ELECTRÓNICO *</label>
+                        <input type="email" id="ct-correo" placeholder="correo@ejemplo.com" required>
+                    </div>
+                    <div class="form-campo">
+                        <label for="ct-telefono">TELÉFONO / CELULAR *</label>
+                        <input type="tel" id="ct-telefono" placeholder="0999 999 999" required>
+                    </div>
+                </div>
+
+                <div class="form-fila-2">
+                    <div class="form-campo">
+                        <label for="ct-provincia">PROVINCIA *</label>
+                        <select id="ct-provincia" required>
+                            <option value="">Seleccione...</option>
+                            <option>Azuay</option><option>Bolívar</option>
+                            <option>Cañar</option><option>Carchi</option>
+                            <option>Chimborazo</option><option>Cotopaxi</option>
+                            <option>El Oro</option><option>Esmeraldas</option>
+                            <option>Galápagos</option><option>Guayas</option>
+                            <option>Imbabura</option><option>Loja</option>
+                            <option>Los Ríos</option><option>Manabí</option>
+                            <option>Morona Santiago</option><option>Napo</option>
+                            <option>Orellana</option><option>Pastaza</option>
+                            <option>Pichincha</option><option>Santa Elena</option>
+                            <option>Santo Domingo de los Tsáchilas</option>
+                            <option>Sucumbíos</option><option>Tungurahua</option>
+                            <option>Zamora Chinchipe</option>
+                        </select>
+                    </div>
+                    <div class="form-campo">
+                        <label for="ct-ciudad">CIUDAD *</label>
+                        <input type="text" id="ct-ciudad" placeholder="Ej: Quito" required>
+                    </div>
+                </div>
+
+                <div class="form-campo">
+                    <label for="ct-asunto">ASUNTO *</label>
+                    <select id="ct-asunto" required>
+                        <option value="">Seleccione un asunto...</option>
+                        <option>Consulta general</option>
+                        <option>Solicitud de proforma</option>
+                        <option>Alquiler de maquinaria</option>
+                        <option>Ingeniería civil</option>
+                        <option>Trabaja con nosotros</option>
+                        <option>Otro</option>
+                    </select>
+                </div>
+
+                <div class="form-campo">
+                    <label for="ct-mensaje">MENSAJE *</label>
+                    <textarea id="ct-mensaje" rows="4"
+                        placeholder="Escribe aquí tu consulta, proyecto o comentario..." required></textarea>
+                </div>
+
+                <div class="form-error" id="contacto-error" style="display:none"></div>
+
+                <button type="submit" class="btn-enviar-contacto" id="btn-enviar-contacto">
+                    ENVIAR MENSAJE
+                </button>
+
+            </form>
+
+            <!-- Mensaje de éxito (oculto por defecto) -->
+            <div class="contacto-exito" id="contacto-exito" style="display:none">
+                <div class="exito-icono">✓</div>
+                <h3>¡MENSAJE ENVIADO!</h3>
+                <p>Gracias por contactarnos. Te responderemos pronto.</p>
+                <button class="btn-primario" style="margin-top:1rem"
+                        onclick="document.getElementById('contacto-exito').style.display='none';
+                                 document.getElementById('form-contacto').style.display='block';">
+                    ENVIAR OTRO MENSAJE
+                </button>
+            </div>
+        </div>
+
+        <!--COLUMNA DERECHA PARA MAPA MAS LA IFORMACION-->
+        <div class="contacto-mapa-col">
+            <h3 class="contacto-mapa-titulo">LOCALIZACIÓN</h3>
+
+            <!--
+                Google Maps integrado no se necesita consumir una API, se puede personalizar la ubicacion compartiendo la ubicacion
+                desde Google Maps → busca tu dirección → "Compartir" → "Insertar mapa" y reemplaza el src con el nuevo enlace de acuerdo 
+                a la ubicaciond e la constructora-->
+                
+            <div class="mapa-contenedor">
+                <iframe
+                    title="Ubicación Guconst Ecuador"
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3989.795!2d-78.4678!3d-0.2295!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x91d59a4002427c9f%3A0x44b991e158ef5572!2sQuito%2C%20Ecuador!5e0!3m2!1ses!2sec!4v1700000000000"
+                    width="100%"
+                    height="320"
+                    style="border:0;"
+                    allowfullscreen
+                    loading="lazy"
+                    referrerpolicy="no-referrer-when-downgrade">
+                </iframe>
+            </div>
+
+            <!-- Info adicional -->
+            <div class="contacto-info-extra">
+                <div class="info-extra-item">
+                    <span class="info-extra-icono">📞</span>
+                    <div>
+                        <p class="info-extra-titulo">Teléfono / WhatsApp</p>
+                        <p>+593 99 999 9999</p>
+                    </div>
+                </div>
+                <div class="info-extra-item">
+                    <span class="info-extra-icono">✉️</span>
+                    <div>
+                        <p class="info-extra-titulo">Correo Electrónico</p>
+                        <p>info@guconst.com.ec</p>
+                    </div>
+                </div>
+                <div class="info-extra-item">
+                    <span class="info-extra-icono">📍</span>
+                    <div>
+                        <p class="info-extra-titulo">Dirección</p>
+                        <p>Ecuador</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="contacto-whatsapp-hint">
+                <p>¿Necesitas respuesta rápida?</p>
+                <small>Usa el botón verde de WhatsApp en la esquina inferior derecha.</small>
+            </div>
+        </div>
+
+    </div>
+</section>
