@@ -245,6 +245,20 @@
     font-size: 0.75rem; 
 }
 
+/* Estilo para correo telefono etc */
+.form-fila-2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.1rem;
+}
+
+/* Estilo para contenedor global */
+.contenedor {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
 /* ESTILO RESPONSIVO PARA DISPOSITIVOS MOVILES */
 
 @media (max-width: 768px) {
