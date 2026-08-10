@@ -1,0 +1,176 @@
+/*Estilos para apartado de contacto en pantalla de proyectos*/
+
+.contacto-cabecera {
+    background-color: var(--color-oscuro);
+    padding: 3.5rem 0;
+    text-align: center;
+}
+
+.contacto-titulo-pag {
+    font-family: var(--fuente-display);
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    font-weight: 700;
+    color: var(--color-blanco);
+    margin-top: 0.5rem;
+}
+
+/* Barra de información */
+.contacto-info-barra {
+    background: var(--color-marca);
+    padding: 1.25rem 0;
+}
+
+.contacto-info-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+}
+
+.contacto-info-item {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    color: white;
+}
+
+.contacto-info-icono { font-size: 1.5rem; }
+
+.contacto-info-etiqueta {
+    font-size: 0.7rem;
+    color: rgba(255,255,255,0.7);
+    font-family: var(--fuente-display);
+    letter-spacing: 0.08em;
+}
+
+.contacto-info-valor {
+    font-weight: 600;
+    font-size: 0.875rem;
+    color: white;
+}
+
+/* Layout principal para formulario y mapa */
+.contacto-cuerpo { padding: 4rem 0; }
+
+.contacto-layout {
+    display: grid;
+    grid-template-columns: 3fr 2fr;
+    gap: 3.5rem;
+    align-items: start;
+}
+
+/*Columna del formulario*/
+.contacto-form-titulo {
+    font-family: var(--fuente-display);
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--color-oscuro);
+    margin-bottom: 0.375rem;
+}
+
+.contacto-form-subtitulo {
+    font-size: 0.875rem;
+    color: var(--color-texto-suave);
+    margin-bottom: 1.75rem;
+}
+
+.contacto-form { display: flex; flex-direction: column; gap: 1.1rem; }
+
+.btn-enviar-contacto {
+    width: 100%;
+    background: var(--color-marca);
+    color: white;
+    border: none;
+    padding: 0.9rem;
+    border-radius: var(--radio-base);
+    font-family: var(--fuente-display);
+    font-weight: 700;
+    font-size: 0.9rem;
+    letter-spacing: 0.05em;
+    cursor: pointer;
+    transition: var(--transicion);
+    margin-top: 0.25rem;
+}
+
+.btn-enviar-contacto:hover:not(:disabled) { background: var(--color-marca-oscuro); }
+.btn-enviar-contacto:disabled { opacity: 0.7; cursor: not-allowed; }
+
+/* Mensaje exitoso del formulario */
+.contacto-exito {
+    text-align: center;
+    padding: 3rem 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.contacto-exito h3 {
+    font-family: var(--fuente-display);
+    font-size: 1.5rem;
+    color: var(--color-oscuro);
+}
+
+.contacto-exito p { color: var(--color-texto-suave); font-size: 0.9rem; }
+
+/*Columna para el mapa*/
+.contacto-mapa-titulo {
+    font-family: var(--fuente-display);
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--color-oscuro);
+    margin-bottom: 0.875rem;
+}
+
+.mapa-contenedor {
+    border-radius: var(--radio-grande);
+    overflow: hidden;
+    border: 1px solid var(--color-gris-borde);
+    box-shadow: var(--sombra-suave);
+    margin-bottom: 1.5rem;
+}
+
+.contacto-info-extra {
+    background: var(--color-gris-claro);
+    border-radius: var(--radio-grande);
+    padding: 1.25rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.info-extra-item {
+    display: flex;
+    gap: 0.75rem;
+    align-items: flex-start;
+}
+
+.info-extra-icono { font-size: 1.1rem; margin-top: 2px; }
+
+.info-extra-titulo {
+    font-weight: 600;
+    font-size: 0.8rem;
+    color: var(--color-oscuro);
+}
+
+.info-extra-item p:last-child {
+    font-size: 0.8rem;
+    color: var(--color-texto-suave);
+}
+
+.contacto-whatsapp-hint {
+    background: var(--color-marca-claro);
+    border: 1px solid rgba(217,119,6,0.25);
+    border-radius: var(--radio-base);
+    padding: 0.875rem 1rem;
+    text-align: center;
+}
+
+.contacto-whatsapp-hint p  { color: #92400E; font-size: 0.875rem; font-weight: 600; }
+.contacto-whatsapp-hint small { color: #B45309; font-size: 0.75rem; }
+
+/*PARA EL ESTILO RESPONSIVO*/
+@media (max-width: 900px) {
+    .contacto-layout     { grid-template-columns: 1fr; gap: 2.5rem; }
+    .contacto-info-grid  { grid-template-columns: 1fr; }
+}
