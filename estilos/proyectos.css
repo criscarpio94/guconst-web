@@ -1,0 +1,302 @@
+/* ESTILOS PARA APARTADO DE PROYECTOS */
+
+/*CABECERA*/
+.proyectos-cabecera {
+    background: linear-gradient(rgba(15,23,42,0.85), rgba(15,23,42,0.85)),
+                url('https://images.unsplash.com/photo-1477959858617-67f85cf4f1df?w=1400&h=400&fit=crop') center/cover;
+    padding: 4rem 0;
+    text-align: center;
+}
+
+.proyectos-titulo-pag {
+    font-family: var(--fuente-display);
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    font-weight: 700;
+    color: var(--color-blanco);
+    margin-top: 0.5rem;
+}
+
+.proyectos-subtitulo {
+    color: #94A3B8;
+    max-width: 500px;
+    margin: 0.875rem auto 0;
+    font-size: 0.95rem;
+    line-height: 1.7;
+}
+
+/*BARRA DE FILTROS*/
+.proyectos-filtros-barra {
+    background: var(--color-blanco);
+    border-bottom: 1px solid var(--color-gris-borde);
+    padding: 0.875rem 0;
+    position: sticky;
+    top: 64px;
+    z-index: 50;
+}
+
+.proyectos-filtros-contenedor {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.filtros-grupo {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+}
+
+.filtros-etiqueta {
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: var(--color-texto-suave);
+    font-family: var(--fuente-display);
+    letter-spacing: 0.05em;
+    white-space: nowrap;
+}
+
+.filtros-lista {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.375rem;
+}
+
+/*ESTILOS PARA GALAERIA DE PROYECTOS*/
+.proyectos-galeria {
+    padding: 2.5rem 0 4rem;
+    background: var(--color-gris-claro);
+    min-height: 60vh;
+}
+
+.proyectos-contador {
+    font-size: 0.8rem;
+    color: var(--color-texto-suave);
+    margin-bottom: 1.5rem;
+}
+
+.proyectos-grilla {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 1.5rem;
+}
+
+/* Estado de carga */
+.cargando-proyectos {
+    grid-column: 1 / -1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    padding: 4rem;
+    color: var(--color-texto-suave);
+    font-size: 0.875rem;
+}
+
+/*TARJETA DE PROYECTO*/
+.proyecto-tarjeta {
+    background: var(--color-blanco);
+    border-radius: var(--radio-grande);
+    overflow: hidden;
+    box-shadow: var(--sombra-suave);
+    border: 1px solid var(--color-gris-borde);
+    cursor: pointer;
+    transition: var(--transicion);
+}
+
+.proyecto-tarjeta:hover {
+    box-shadow: var(--sombra-grande);
+    transform: translateY(-4px);
+}
+
+.proyecto-imagen-wrap {
+    position: relative;
+    overflow: hidden;
+}
+
+.proyecto-imagen {
+    width: 100%;
+    height: 210px;
+    object-fit: cover;
+    background: #E5E7EB;
+    transition: transform 0.45s ease;
+}
+
+.proyecto-tarjeta:hover .proyecto-imagen { transform: scale(1.06); }
+
+.proyecto-badges {
+    position: absolute;
+    top: 0.75rem;
+    left: 0.75rem;
+    right: 0.75rem;
+    display: flex;
+    justify-content: space-between;
+}
+
+.proy-badge-anio {
+    background: var(--color-marca);
+    color: white;
+    font-family: var(--fuente-display);
+    font-size: 0.75rem;
+    font-weight: 600;
+    padding: 0.2rem 0.625rem;
+    border-radius: var(--radio-base);
+}
+
+.proy-badge-cat {
+    background: rgba(0,0,0,0.6);
+    color: white;
+    font-size: 0.7rem;
+    padding: 0.2rem 0.625rem;
+    border-radius: var(--radio-base);
+    backdrop-filter: blur(4px);
+}
+
+.proyecto-cuerpo { padding: 1.25rem; }
+
+.proyecto-nombre {
+    font-family: var(--fuente-display);
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--color-oscuro);
+    margin-bottom: 0.375rem;
+    transition: var(--transicion);
+}
+
+.proyecto-tarjeta:hover .proyecto-nombre { color: var(--color-marca); }
+
+.proyecto-ubicacion {
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+    font-size: 0.75rem;
+    color: var(--color-texto-suave);
+    margin-bottom: 0.75rem;
+}
+
+.proyecto-descripcion {
+    font-size: 0.8rem;
+    color: var(--color-texto-suave);
+    line-height: 1.65;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    margin-bottom: 0.875rem;
+}
+
+.proyecto-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid var(--color-gris-borde);
+    padding-top: 0.75rem;
+}
+
+.proyecto-cliente-txt { font-size: 0.75rem; color: #9CA3AF; }
+.proyecto-ver-mas     { font-size: 0.75rem; color: var(--color-marca); font-weight: 500; }
+
+/*ESTILO PARA DETALLE PROYECTO*/
+.modal-proyecto-contenedor {
+    max-width: 680px;
+    position: relative;
+    overflow: hidden;
+    border-radius: var(--radio-grande);
+    background: white;
+    max-height: 90vh;
+    overflow-y: auto;
+}
+
+.modal-cerrar-abs {
+    position: absolute;
+    top: 0.875rem;
+    right: 0.875rem;
+    z-index: 10;
+    background: rgba(0,0,0,0.5);
+    border: none;
+    color: white;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: var(--transicion);
+}
+
+.modal-cerrar-abs:hover { background: rgba(0,0,0,0.75); }
+
+.proyecto-modal-imagen-wrap { position: relative; }
+
+.proyecto-modal-imagen {
+    width: 100%;
+    height: 260px;
+    object-fit: cover;
+    background: #E5E7EB;
+    display: block;
+}
+
+.proyecto-modal-badges {
+    position: absolute;
+    bottom: 0.875rem;
+    left: 1rem;
+    display: flex;
+    gap: 0.5rem;
+}
+
+.proyecto-modal-cuerpo { padding: 1.5rem 2rem 2rem; }
+
+.proyecto-modal-titulo {
+    font-family: var(--fuente-display);
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--color-oscuro);
+    margin-bottom: 0.5rem;
+}
+
+.proyecto-modal-ubicacion {
+    display: flex;
+    align-items: center;
+    gap: 0.375rem;
+    font-size: 0.875rem;
+    color: var(--color-texto-suave);
+    margin-bottom: 1rem;
+}
+
+.proyecto-modal-descripcion {
+    font-size: 0.95rem;
+    color: var(--color-texto-suave);
+    line-height: 1.75;
+    margin-bottom: 1.25rem;
+}
+
+.proyecto-modal-cliente {
+    background: var(--color-gris-claro);
+    border-radius: var(--radio-base);
+    padding: 0.875rem 1rem;
+}
+
+.cliente-etiqueta {
+    display: block;
+    font-size: 0.65rem;
+    font-family: var(--fuente-display);
+    letter-spacing: 0.1em;
+    color: #9CA3AF;
+    margin-bottom: 0.25rem;
+}
+
+.cliente-nombre {
+    font-weight: 600;
+    font-size: 0.9rem;
+    color: var(--color-oscuro);
+}
+
+/* ESTILO RESPONSIVO PARA MOVILE*/
+@media (max-width: 768px) {
+    .proyectos-grilla { grid-template-columns: 1fr; }
+    .proyecto-modal-cuerpo { padding: 1.25rem; }
+    .proyecto-modal-titulo { font-size: 1.2rem; }
+}
