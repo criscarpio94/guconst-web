@@ -1,13 +1,5 @@
-/* ESTILOS PARA APARTADO DE CONTACTO*/
+/*Estilos para apartado de contacto*/
 
-/* Contenedor global */
-.contenedor {
-    width: 90%;
-    max-width: 1200px;
-    margin: 0 auto;
-}
-
-/* Cabecera superior */
 .contacto-cabecera {
     background-color: var(--color-oscuro);
     padding: 3.5rem 0;
@@ -22,7 +14,7 @@
     margin-top: 0.5rem;
 }
 
-/* Barra naranja de información */
+/* Barra de información */
 .contacto-info-barra {
     background: var(--color-marca);
     padding: 1.25rem 0;
@@ -41,13 +33,11 @@
     color: white;
 }
 
-.contacto-info-icono { 
-    font-size: 1.5rem; 
-}
+.contacto-info-icono { font-size: 1.5rem; }
 
 .contacto-info-etiqueta {
     font-size: 0.7rem;
-    color: rgba(255, 255, 255, 0.7);
+    color: rgba(255,255,255,0.7);
     font-family: var(--fuente-display);
     letter-spacing: 0.08em;
 }
@@ -58,10 +48,8 @@
     color: white;
 }
 
-/* Layout Principal: 2 columnas para formulario y mapa */
-.contacto-cuerpo { 
-    padding: 4rem 0; 
-}
+/* Layout principal para formulario y mapa */
+.contacto-cuerpo { padding: 4rem 0; }
 
 .contacto-layout {
     display: grid;
@@ -70,8 +58,7 @@
     align-items: start;
 }
 
-/* COLUMNA PARA FORMULARIO */
-
+/*Columna del formulario*/
 .contacto-form-titulo {
     font-family: var(--fuente-display);
     font-size: 1.5rem;
@@ -86,70 +73,8 @@
     margin-bottom: 1.75rem;
 }
 
-.contacto-form { 
-    display: flex; 
-    flex-direction: column; 
-    gap: 1.1rem; 
-}
+.contacto-form { display: flex; flex-direction: column; gap: 1.1rem; }
 
-/* Estilo para los contenedores de cada campo */
-.form-campo {
-    display: flex;
-    flex-direction: column;
-}
-
-/* Estilo para las filas de 2 campos (Correo/Tel y Provincia/Ciudad) */
-.form-fila-2 {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 1.1rem;
-}
-
-/* Estilo para los títulos de cada campo (LABELS) */
-.contacto-form label {
-    display: block;
-    font-family: var(--fuente-display);
-    font-size: 0.8rem;
-    font-weight: 700;
-    color: var(--color-oscuro);
-    letter-spacing: 0.05em;
-    margin-bottom: 0.35rem;
-}
-
-/* Estilo visual para las entradas de texto e inputs */
-.contacto-form input[type="text"],
-.contacto-form input[type="email"],
-.contacto-form input[type="tel"],
-.contacto-form select,
-.contacto-form textarea {
-    width: 100%;
-    padding: 0.75rem 0.9rem;
-    font-size: 0.9rem;
-    font-family: inherit;
-    color: var(--color-oscuro);
-    background-color: #F9FAFB;
-    border: 1.5px solid #E5E7EB;
-    border-radius: var(--radio-base);
-    transition: var(--transicion);
-    outline: none;
-    box-sizing: border-box;
-}
-
-/* Efecto al hacer clic en un campo para escribir */
-.contacto-form input:focus,
-.contacto-form select:focus,
-.contacto-form textarea:focus {
-    background-color: #FFFFFF;
-    border-color: var(--color-marca);
-    box-shadow: 0 0 0 3px rgba(217, 119, 6, 0.15);
-}
-
-.contacto-form textarea {
-    resize: vertical;
-    min-height: 110px;
-}
-
-/* Estilo para botón de Enviar */
 .btn-enviar-contacto {
     width: 100%;
     background: var(--color-marca);
@@ -166,14 +91,8 @@
     margin-top: 0.25rem;
 }
 
-.btn-enviar-contacto:hover:not(:disabled) { 
-    background: var(--color-marca-oscuro); 
-}
-
-.btn-enviar-contacto:disabled { 
-    opacity: 0.7; 
-    cursor: not-allowed; 
-}
+.btn-enviar-contacto:hover:not(:disabled) { background: var(--color-marca-oscuro); }
+.btn-enviar-contacto:disabled { opacity: 0.7; cursor: not-allowed; }
 
 /* Mensaje exitoso del formulario */
 .contacto-exito {
@@ -191,13 +110,9 @@
     color: var(--color-oscuro);
 }
 
-.contacto-exito p { 
-    color: var(--color-texto-suave); 
-    font-size: 0.9rem; 
-}
+.contacto-exito p { color: var(--color-texto-suave); font-size: 0.9rem; }
 
-/* COLUMNA DERECHA PARA EL MAPA */
-
+/*Columna para el mapa*/
 .contacto-mapa-titulo {
     font-family: var(--fuente-display);
     font-size: 1rem;
@@ -230,10 +145,7 @@
     align-items: flex-start;
 }
 
-.info-extra-icono { 
-    font-size: 1.1rem; 
-    margin-top: 2px; 
-}
+.info-extra-icono { font-size: 1.1rem; margin-top: 2px; }
 
 .info-extra-titulo {
     font-weight: 600;
@@ -248,37 +160,17 @@
 
 .contacto-whatsapp-hint {
     background: var(--color-marca-claro);
-    border: 1px solid rgba(217, 119, 6, 0.25);
+    border: 1px solid rgba(217,119,6,0.25);
     border-radius: var(--radio-base);
     padding: 0.875rem 1rem;
     text-align: center;
 }
 
-.contacto-whatsapp-hint p { 
-    color: #92400E; 
-    font-size: 0.875rem; 
-    font-weight: 600; 
-}
+.contacto-whatsapp-hint p  { color: #92400E; font-size: 0.875rem; font-weight: 600; }
+.contacto-whatsapp-hint small { color: #B45309; font-size: 0.75rem; }
 
-.contacto-whatsapp-hint small { 
-    color: #B45309; 
-    font-size: 0.75rem; 
-}
-
-/* ESTILO RESPONSIVO PARA DISPOSITIVOS MÓVILES */
-
-@media (max-width: 768px) {
-    .contacto-layout { 
-        grid-template-columns: 1fr; 
-        gap: 2.5rem; 
-    }
-    
-    .contacto-info-grid { 
-        grid-template-columns: 1fr; 
-    }
-
-    /* Hace que los campos dobles se vuelvan 1 columna en celulares */
-    .form-fila-2 {
-        grid-template-columns: 1fr;
-    }
+/*PARA EL ESTILO RESPONSIVO*/
+@media (max-width: 900px) {
+    .contacto-layout     { grid-template-columns: 1fr; gap: 2.5rem; }
+    .contacto-info-grid  { grid-template-columns: 1fr; }
 }
