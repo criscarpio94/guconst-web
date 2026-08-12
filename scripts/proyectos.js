@@ -120,7 +120,7 @@
         document.body.style.overflow = '';
     };
 
-    //Funcion para cerrar con tecla Escape
+    //Funcion para cerrar al dar clic fuera de la tarjeta o con tecla Escape
     document.getElementById('modal-proyecto')?.addEventListener('click', function (e) {
         if (e.target === this) cerrarModalProyecto();
     });
