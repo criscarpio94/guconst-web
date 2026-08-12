@@ -75,6 +75,55 @@
 
 .contacto-form { display: flex; flex-direction: column; gap: 1.1rem; }
 
+/* campos del formulario */
+.form-campo {
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+}
+
+.form-campo label {
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--color-oscuro);
+}
+
+.form-campo input,
+.form-campo select,
+.form-campo textarea {
+    width: 100%;
+    padding: 0.65rem 0.75rem;
+    border: 1px solid var(--color-gris-borde);
+    border-radius: var(--radio-base);
+    font-size: 0.9rem;
+    font-family: var(--fuente-base);
+    color: var(--color-oscuro);
+    background-color: var(--color-blanco);
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+/*efecto al enfocar*/
+.form-campo input:focus,
+.form-campo select:focus,
+.form-campo textarea:focus {
+    border-color: var(--color-marca);
+    box-shadow: 0 0 0 3px rgba(217, 119, 6, 0.25);
+    outline: none;
+}
+
+/*filas 2 columnas*/
+.form-fila-2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+}
+
+/*Texto tarea un poco mas alto */
+.form-campo textarea {
+    resize: vertical;
+    min-height: 120px;
+}
+
 .btn-enviar-contacto {
     width: 100%;
     background: var(--color-marca);

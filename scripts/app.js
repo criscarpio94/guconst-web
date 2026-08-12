@@ -1,24 +1,23 @@
 // ORQUESTADOR QUE VA A ESCUCHAR LOS CLICS EN LOS BOTONES, INYECTAR EL HTML EN EL CONTENIDO PRINCIPAL,
 // CARGAR DISEÑOS .CSS, Y ACTUALIZAR ESTADOS
 
-
-//CONFIGURACION PARA LAS RUTAS
+// CONFIGURACIÓN PARA LAS RUTAS
 const RUTAS = {
-    inicio:    { vista: 'vistas/inicio.html',    css: 'estilos/inicio.css',    js: 'scripts/inicio.js'    },
+    inicio:    { vista: 'vistas/inicio.html', css: 'estilos/inicio.css', js: 'scripts/inicio.js' },
     servicios: { vista: 'vistas/servicios.html', css: 'estilos/servicios.css', js: 'scripts/servicios.js' },
     proyectos: { vista: 'vistas/proyectos.html', css: 'estilos/proyectos.css', js: 'scripts/proyectos.js' },
-    contacto:  { vista: 'vistas/contacto.html',  css: 'estilos/contacto.css',  js: 'scripts/contacto.js'  },
-    admin:     { vista: 'vistas/admin.html',      css: 'estilos/admin.css',     js: 'scripts/admin.js'     },
+    contacto:  { vista: 'vistas/contacto.html', css: 'estilos/contacto.css', js: 'scripts/contacto.js' },
+    admin:     { vista: 'vistas/admin.html', css: 'estilos/admin.css', js: 'scripts/admin.js' },
 };
 
-//REFERENCIA PARA EL AREA DEL CONTENIDO
+// REFERENCIA PARA EL ÁREA DEL CONTENIDO
 const contenedorPrincipal = document.getElementById('contenido-principal');
 const piePagina           = document.getElementById('pie-pagina');
 
-//PAGINA ACTUAL
+// PÁGINA ACTUAL
 let paginaActual = null;
 
-//FUNCION PARA NAVEGAR A UNA PAGINA
+// FUNCIÓN PARA NAVEGAR A UNA PÁGINA
 async function navegarA(nombrePagina) {
     if (!RUTAS[nombrePagina]) {
         console.error('Ruta no encontrada:', nombrePagina);
@@ -28,39 +27,39 @@ async function navegarA(nombrePagina) {
 
     paginaActual = nombrePagina;
 
-    //MOSTRAR CARGA
+    // MOSTRAR CARGA
     contenedorPrincipal.innerHTML = `
         <div class="cargando-vista">
             <div class="spinner"></div>
         </div>
     `;
 
-    //PARA OCULTAR EL PIE DE PAGINA CUANDO SE ESTE EN EL APARTADO DE ADMIN
+    // OCULTAR PIE DE PÁGINA EN ADMIN
     if (piePagina) {
         piePagina.style.display = nombrePagina === 'admin' ? 'none' : '';
     }
 
-    //PARA CARGAR ESTILOS .CSS DE LAS VISTAS
-    cargarCSS(RUTAS[nombrePagina].css);
-
     try {
-        //PARA CARGAR EL HTML DE LA VISTA
+        // 1. CARGAR EL HTML DE LA VISTA
         const respuesta = await fetch(RUTAS[nombrePagina].vista);
         if (!respuesta.ok) {
             throw new Error(`No se pudo cargar: ${RUTAS[nombrePagina].vista} (${respuesta.status})`);
         }
         const htmlVista = await respuesta.text();
 
-        // Inyectar el HTML en el contenedor
+        // 2. INYECTAR EL HTML EN EL CONTENEDOR (PRIMERO)
         contenedorPrincipal.innerHTML = htmlVista;
 
-        // Scroll al inicio de la pagina
+        // 3. CARGAR EL CSS DE LA VISTA (DESPUÉS DE INYECTAR EL HTML)
+        cargarCSS(RUTAS[nombrePagina].css);
+
+        // 4. SCROLL AL INICIO DE LA PÁGINA
         window.scrollTo({ top: 0, behavior: 'smooth' });
 
-        // Actualizar estado del menu
+        // 5. ACTUALIZAR ESTADO DEL MENÚ
         actualizarMenuActivo(nombrePagina);
 
-        // Cargar el JS de la vista
+        // 6. CARGAR EL JS DE LA VISTA
         await cargarJS(RUTAS[nombrePagina].js);
 
     } catch (error) {
@@ -80,15 +79,18 @@ async function navegarA(nombrePagina) {
     }
 }
 
-//PARA CARGAR EL CSS DE MANERA DINAMICA
+// PARA CARGAR EL CSS DE MANERA DINÁMICA LIMPIANDO ESTILOS PREVIOS
 function cargarCSS(rutaCSS) {
     const idCSS = 'css-' + rutaCSS.replace(/\//g, '-').replace('.css', '');
-    if (document.getElementById(idCSS)) return;
+
+    // Remover hojas de estilo de vistas dinámicas anteriores para evitar solapamientos
+    document.querySelectorAll('link[data-vista-css="true"]').forEach(el => el.remove());
 
     const enlace = document.createElement('link');
-    enlace.id   = idCSS;
-    enlace.rel  = 'stylesheet';
-    enlace.href = rutaCSS;
+    enlace.id = idCSS;
+    enlace.rel = 'stylesheet';
+    enlace.dataset.vistaCss = "true"; // Marca para identificarlo
+    enlace.href = rutaCSS + '?v=' + Date.now(); // Evita caché
     document.head.appendChild(enlace);
 }
 
@@ -106,13 +108,13 @@ function cargarJS(rutaJS) {
         script.onload  = () => resolve();
         script.onerror = () => {
             console.warn('JS no encontrado (se cargará en el siguiente avance):', rutaJS);
-            resolve(); // la app no se detiene si el js no existe
+            resolve(); // La app no se detiene si el JS no existe
         };
         document.body.appendChild(script);
     });
 }
 
-//ACTUALIZAR EL ESTADO DEL MENU
+// ACTUALIZAR EL ESTADO DEL MENÚ
 function actualizarMenuActivo(paginaActiva) {
     document.querySelectorAll('.nav-enlace, .btn-admin').forEach(btn => {
         btn.classList.remove('activo');
@@ -122,7 +124,7 @@ function actualizarMenuActivo(paginaActiva) {
     });
 }
 
-//AL ESCUCHAR CLICS SE INICIA LA NAVEGACION
+// AL ESCUCHAR CLICS SE INICIA LA NAVEGACIÓN
 function inicializarNavegacion() {    
     document.addEventListener('click', function(evento) {
         const boton = evento.target.closest('[data-pagina]');
@@ -131,12 +133,12 @@ function inicializarNavegacion() {
         const pagina = boton.dataset.pagina;
         navegarA(pagina);
 
-        //Para cerrar el menu en caso de ser movil
+        // Cerrar el menú en caso de estar en móvil
         cerrarMenuMovil();
     });
 }
 
-//MENU HAMBURGUESA EN MOVIL
+// MENÚ HAMBURGUESA EN MÓVIL
 function inicializarMenuMovil() {
     const btnHamburguesa = document.getElementById('btn-hamburguesa');
     const menuMovil      = document.getElementById('menu-movil');
@@ -160,7 +162,7 @@ function cerrarMenuMovil() {
     }
 }
 
-//ARRANCA LA APLICACION
+// ARRANCA LA APLICACIÓN
 document.addEventListener('DOMContentLoaded', function() {
     inicializarNavegacion();
     inicializarMenuMovil();
