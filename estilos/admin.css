@@ -449,45 +449,26 @@
 .admin-reciente-nombre { font-weight: 600; color: var(--color-oscuro); }
 .admin-reciente-fecha  { font-size: 0.75rem; color: #9CA3AF; }
 
-/* ESTILO RESPONSIVO */
-@media (max-width: 900px) {
-    .admin-panel { grid-template-columns: 1fr; }
-    .admin-sidebar {
-        position: static;
-        height: auto;
-        flex-direction: row;
-        flex-wrap: wrap;
-        padding: 0.75rem;
-    }
-    .admin-nav { flex-direction: row; flex-wrap: wrap; }
-    .admin-sidebar-usuario { display: none; }
-}
-
-/* ESTILO PARA MODAL Y VENTANAS EMERGENTES (ADMIN) */
-
-/* Fondo oscuro superpuesto */
 .modal-overlay {
     position: fixed;
     top: 0;
     left: 0;
     width: 100vw;
     height: 100vh;
-    background: rgba(15, 23, 42, 0.75); /* Oscuro semi-transparente */
-    backdrop-filter: blur(4px); /* EFECTO DE DESENFOQUE */
-    display: none; /* OCULTO POR DEFECTO */
+    background: rgba(15, 23, 42, 0.75);
+    backdrop-filter: blur(4px);
+    display: none;
     align-items: center;
     justify-content: center;
-    z-index: 9999; /* Asegura que quede por encima de todo */
+    z-index: 9999;
     padding: 1.5rem;
     overflow-y: auto;
 }
 
-/* Clase activa que JavaScript debe añadir para abrir el modal */
 .modal-overlay.activo {
     display: flex !important;
 }
 
-/* Tarjeta contenedora de la ventana flotante */
 .modal-contenedor {
     background: white;
     border-radius: var(--radio-grande, 16px);
@@ -511,7 +492,6 @@
     }
 }
 
-/* Cabecera del modal */
 .modal-cabecera {
     display: flex;
     justify-content: space-between;
@@ -545,7 +525,6 @@
     background: #F3F4F6;
 }
 
-/* Estilos de formulario reutilizados dentro del modal */
 .modal-contenedor .form-fila-2 {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -585,9 +564,140 @@
     box-shadow: 0 0 0 3px rgba(217, 119, 6, 0.15);
 }
 
-/* Ajustes responsive del modal */
+
+/* ESTILO RESPONSIVO */
+@media (max-width: 900px) {
+    .admin-panel { grid-template-columns: 1fr; }
+    .admin-sidebar {
+        position: static;
+        height: auto;
+        flex-direction: row;
+        flex-wrap: wrap;
+        padding: 0.75rem;
+    }
+    .admin-nav { flex-direction: row; flex-wrap: wrap; }
+    .admin-sidebar-usuario { display: none; }
+}
+
 @media (max-width: 640px) {
     .modal-contenedor .form-fila-2 {
         grid-template-columns: 1fr;
     }
+}
+
+/* AJUSTES DE ESTILOS FINALES */
+
+.badge-contador {
+    background: #EF4444;
+    color: white;
+    font-size: 0.65rem;
+    font-weight: 700;
+    border-radius: 999px;
+    padding: 0.1rem 0.45rem;
+    margin-left: auto;
+    min-width: 18px;
+    text-align: center;
+}
+
+/* MENSAJES DE CONTACTO */
+.mensaje-admin-tarjeta {
+    background: white;
+    border-radius: var(--radio-grande);
+    padding: 1.25rem 1.5rem;
+    border: 1px solid var(--color-gris-borde);
+    box-shadow: var(--sombra-suave);
+    margin-bottom: 0.875rem;
+    transition: var(--transicion);
+}
+
+.mensaje-admin-tarjeta.no-leido {
+    border-left: 3px solid var(--color-marca);
+}
+
+.mensaje-admin-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 1rem;
+    margin-bottom: 0.75rem;
+    flex-wrap: wrap;
+}
+
+.mensaje-admin-remitente { font-weight: 600; color: var(--color-oscuro); font-size: 0.9rem; }
+.mensaje-admin-sub        { font-size: 0.775rem; color: var(--color-texto-suave); margin-top: 0.125rem; }
+.mensaje-admin-asunto     { font-weight: 600; color: var(--color-oscuro); font-size: 0.8rem; margin-bottom: 0.375rem; }
+.mensaje-admin-cuerpo     { font-size: 0.8rem; color: var(--color-texto-suave); line-height: 1.65; }
+
+.mensaje-admin-acciones {
+    display: flex;
+    gap: 0.625rem;
+    margin-top: 0.875rem;
+    flex-wrap: wrap;
+}
+
+.btn-leido     { font-size:0.75rem; color: #3B82F6; background:none; border:none; cursor:pointer; font-weight:500; }
+.btn-eliminar-msg { font-size:0.75rem; color: #EF4444; background:none; border:none; cursor:pointer; font-weight:500; }
+.btn-leido:hover    { text-decoration:underline; }
+.btn-eliminar-msg:hover { text-decoration:underline; }
+
+
+/* CAMBIAR CONTRASEÑA */
+.form-cambiar-pass {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+    max-width: 520px;
+}
+
+.form-cambiar-pass .form-campo {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    width: 100%;
+}
+
+.form-cambiar-pass label {
+    font-family: var(--fuente-display), sans-serif;
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: #374151;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+}
+
+.form-cambiar-pass input[type="password"] {
+    width: 100%;
+    padding: 0.85rem 1rem;
+    border: 1px solid #E5E7EB;
+    border-radius: 12px;
+    font-size: 0.95rem;
+    color: #1F2937;
+    background-color: #FFFFFF;
+    outline: none;
+    transition: all 0.2s ease;
+    box-sizing: border-box;
+}
+
+.form-cambiar-pass input[type="password"]:focus {
+    border-color: #D97706;
+    box-shadow: 0 0 0 3px rgba(217, 119, 6, 0.15);
+}
+
+.form-cambiar-pass input::placeholder {
+    color: #9CA3AF;
+}
+
+.form-cambiar-pass #btn-cambiar-pass {
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    text-align: center !important;
+}
+
+/* FILTRO DE MENSAJES */
+.mensajes-filtros {
+    display: flex;
+    gap: 0.5rem;
+    margin-bottom: 1.25rem;
+    flex-wrap: wrap;
 }
