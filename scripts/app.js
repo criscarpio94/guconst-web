@@ -19,10 +19,7 @@ let paginaActual = null;
 
 // FUNCIÓN PARA NAVEGAR A UNA PÁGINA
 async function navegarA(nombrePagina) {
-    if (!RUTAS[nombrePagina]) {
-        console.error('Ruta no encontrada:', nombrePagina);
-        return;
-    }
+    if (!RUTAS[nombrePagina]) return;
     if (paginaActual === nombrePagina) return;
 
     paginaActual = nombrePagina;
@@ -42,9 +39,7 @@ async function navegarA(nombrePagina) {
     try {
         // 1. CARGAR EL HTML DE LA VISTA
         const respuesta = await fetch(RUTAS[nombrePagina].vista);
-        if (!respuesta.ok) {
-            throw new Error(`No se pudo cargar: ${RUTAS[nombrePagina].vista} (${respuesta.status})`);
-        }
+        if (!respuesta.ok) throw new Error(`No se pudo cargar: ${RUTAS[nombrePagina].vista}`);
         const htmlVista = await respuesta.text();
 
         // 2. CARGAR Y APLICAR EL CSS PRIMERO 
