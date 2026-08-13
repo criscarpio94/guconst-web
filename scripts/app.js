@@ -47,11 +47,11 @@ async function navegarA(nombrePagina) {
         }
         const htmlVista = await respuesta.text();
 
-        // 2. INYECTAR EL HTML EN EL CONTENEDOR (PRIMERO)
-        contenedorPrincipal.innerHTML = htmlVista;
+        // 2. CARGAR Y APLICAR EL CSS PRIMERO 
+        await cargarCSS(RUTAS[nombrePagina].css);
 
-        // 3. CARGAR EL CSS DE LA VISTA (DESPUÉS DE INYECTAR EL HTML)
-        cargarCSS(RUTAS[nombrePagina].css);
+        //3. INYECTAR EL HTML 
+        contenedorPrincipal.innerHTML = htmlVista;       
 
         // 4. SCROLL AL INICIO DE LA PÁGINA
         window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -79,19 +79,33 @@ async function navegarA(nombrePagina) {
     }
 }
 
-// PARA CARGAR EL CSS DE MANERA DINÁMICA LIMPIANDO ESTILOS PREVIOS
+// PARA CARGAR EL CSS DE MANERA DINÁMICA Y ESPERAR A QUE ESTÉ LISTO
 function cargarCSS(rutaCSS) {
-    const idCSS = 'css-' + rutaCSS.replace(/\//g, '-').replace('.css', '');
+    return new Promise((resolve) => {
+        const idCSS = 'css-' + rutaCSS.replace(/\//g, '-').replace('.css', '');
 
-    // Remover hojas de estilo de vistas dinámicas anteriores para evitar solapamientos
-    document.querySelectorAll('link[data-vista-css="true"]').forEach(el => el.remove());
+        // Si ya existe este CSS cargado, lo mantenemos y resolvemos de inmediato
+        if (document.getElementById(idCSS)) {
+            resolve();
+            return;
+        }
 
-    const enlace = document.createElement('link');
-    enlace.id = idCSS;
-    enlace.rel = 'stylesheet';
-    enlace.dataset.vistaCss = "true"; // Marca para identificarlo
-    enlace.href = rutaCSS + '?v=' + Date.now(); // Evita caché
-    document.head.appendChild(enlace);
+        // Remover CSS de vistas dinámicas anteriores
+        document.querySelectorAll('link[data-vista-css="true"]').forEach(el => el.remove());
+
+        const enlace = document.createElement('link');
+        enlace.id = idCSS;
+        enlace.rel = 'stylesheet';
+        enlace.dataset.vistaCss = "true";
+        // Quitamos Date.now() para aprovechar la velocidad del caché del navegador
+        enlace.href = rutaCSS; 
+
+        // Escuchar cuando el navegador termine de leer el CSS
+        enlace.onload = () => resolve();
+        enlace.onerror = () => resolve(); // Continúa aunque falle el CSS
+
+        document.head.appendChild(enlace);
+    });
 }
 
 // CARGAR EL JS
