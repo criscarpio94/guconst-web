@@ -1,0 +1,197 @@
+
+<!--PANTALLA DE LOGIN (visible por defecto)-->
+
+<div id="pantalla-login" class="admin-login-pantalla">
+    <div class="admin-login-tarjeta">
+
+        <div class="admin-login-header">
+            <div class="admin-logo-bloque admin-logo-circulo">GU</div>
+            <h1 class="admin-login-titulo">PANEL DE ADMINISTRACIÓN</h1>
+            <p class="admin-login-subtitulo">GUCONST CIA. LTDA.</p>
+        </div>
+
+        <form id="form-login" class="admin-login-form">
+            <div class="form-campo">
+                <label for="login-correo">CORREO ELECTRÓNICO</label>
+                <input type="email" id="login-correo" placeholder="admin@guconst.com" required autocomplete="username">
+            </div>
+            <div class="form-campo">
+                <label for="login-contrasenia">CONTRASEÑA</label>
+                <input type="password" id="login-contrasenia" placeholder="••••••••" required autocomplete="current-password">
+            </div>
+            <div class="form-error" id="login-error" style="display:none;"></div>
+            <button type="submit" class="btn-login" id="btn-login">INICIAR SESIÓN</button>
+        </form>        
+    </div>
+</div>
+
+<!--PANEL PRINCIPAL (oculto mientras el administrador no inicie sesion)-->
+
+<div id="pantalla-admin" class="admin-panel" style="display:none;">
+
+    <!-- barra lateral -->
+    <aside class="admin-sidebar">
+        <div class="admin-sidebar-logo">
+            <div class="admin-logo-bloque-sm">GU</div>
+            <div>
+                <p class="admin-sidebar-marca">GUCONST</p>
+                <p class="admin-sidebar-sub">Admin Panel</p>
+            </div>
+        </div>
+
+        <div class="admin-sidebar-usuario">
+            <p class="admin-usuario-nombre" id="admin-nombre-sidebar">Cargando...</p>
+            <p class="admin-usuario-rol"    id="admin-rol-sidebar">—</p>
+        </div>
+
+        <nav class="admin-nav">
+            <button class="admin-nav-btn activo" data-seccion="dashboard">
+                <span>📊</span> Dashboard
+            </button>
+            <button class="admin-nav-btn" data-seccion="maquinaria">
+                <span>🚜</span> Maquinaria
+            </button>
+            <button class="admin-nav-btn" data-seccion="proformas">
+                <span>📋</span> Solicitudes
+            </button>
+        </nav>
+
+        <div class="admin-sidebar-acciones">
+            <button class="admin-nav-btn" id="btn-ver-sitio">
+                <span>🌐</span> Ver sitio
+            </button>
+            <button class="admin-nav-btn admin-logout-btn" id="btn-logout">
+                <span>🚪</span> Cerrar sesión
+            </button>
+        </div>
+    </aside>
+
+    <!-- apartado principal -->
+    <main class="admin-main">
+
+        <!-- SECCION DASHBOARD -->
+        <section id="seccion-dashboard" class="admin-seccion activo">
+            <h2 class="admin-seccion-titulo">DASHBOARD</h2>
+            <div class="admin-stats-grid" id="admin-stats-grid">
+                <!-- JS inserta las tarjetas de estadísticas -->
+            </div>
+            <div class="admin-recientes">
+                <h3 class="admin-subtitulo">ÚLTIMAS SOLICITUDES</h3>
+                <div id="admin-recientes-lista"></div>
+            </div>
+        </section>
+
+        <!-- SECCION MAQUINARIA (CRUD) -->
+        <section id="seccion-maquinaria" class="admin-seccion">
+            <div class="admin-seccion-header">
+                <h2 class="admin-seccion-titulo">GESTIÓN DE MAQUINARIA</h2>
+                <button class="btn-primario" id="btn-nueva-maquina">+ AGREGAR EQUIPO</button>
+            </div>
+            <div class="admin-tabla-wrap">
+                <table class="admin-tabla" id="tabla-maquinaria">
+                    <thead>
+                        <tr>
+                            <th>Nombre</th>
+                            <th>Marca / Modelo</th>
+                            <th>Categoría</th>
+                            <th>Potencia</th>
+                            <th>Estado</th>
+                            <th>Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tbody-maquinaria">
+                        <!-- JS inserta las filas -->
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- SECCION PARA SOLICITUDES DE PROFORMA -->
+        <section id="seccion-proformas" class="admin-seccion">
+            <h2 class="admin-seccion-titulo">SOLICITUDES DE PROFORMA</h2>
+            <div id="lista-proformas">
+                <!-- JS inserta las tarjetas de proforma -->
+            </div>
+        </section>
+
+    </main>
+</div>
+
+<!--MODAL O VENTANA EMERGENTE PARA: CREAR / EDITAR MAQUINARIA-->
+
+<div class="modal-overlay" id="modal-maquina">
+    <div class="modal-contenedor">
+
+        <div class="modal-cabecera">
+            <h3 class="modal-titulo" id="modal-maquina-titulo">NUEVA MAQUINARIA</h3>
+            <button class="modal-cerrar" onclick="cerrarModalMaquina()">✕</button>
+        </div>
+
+        <form id="form-maquina" class="proforma-form">
+            <input type="hidden" id="maquina-id">
+
+            <div class="form-fila-2">
+                <div class="form-campo">
+                    <label>NOMBRE *</label>
+                    <input type="text" id="maq-nombre" placeholder="Ej: Excavadora Hidráulica" required>
+                </div>
+                <div class="form-campo">
+                    <label>TIPO *</label>
+                    <input type="text" id="maq-tipo" placeholder="Ej: Excavadora" required>
+                </div>
+            </div>
+            <div class="form-fila-2">
+                <div class="form-campo">
+                    <label>MARCA *</label>
+                    <input type="text" id="maq-marca" placeholder="Ej: Caterpillar" required>
+                </div>
+                <div class="form-campo">
+                    <label>MODELO *</label>
+                    <input type="text" id="maq-modelo" placeholder="Ej: 320 GC" required>
+                </div>
+            </div>
+            <div class="form-fila-2">
+                <div class="form-campo">
+                    <label>POTENCIA *</label>
+                    <input type="text" id="maq-potencia" placeholder="Ej: 103 kW (138 HP)" required>
+                </div>
+                <div class="form-campo">
+                    <label>PESO</label>
+                    <input type="text" id="maq-peso" placeholder="Ej: 20.300 kg">
+                </div>
+            </div>
+            <div class="form-campo">
+                <label>CATEGORÍA *</label>
+                <select id="maq-categoria" required>
+                    <option value="">Seleccione...</option>
+                    <option>Excavación</option>
+                    <option>Transporte</option>
+                    <option>Nivelación</option>
+                    <option>Compactación</option>
+                    <option>Movimiento de Tierras</option>
+                    <option>Carga y Transporte</option>
+                    <option>Izaje</option>
+                </select>
+            </div>
+            <div class="form-campo">
+                <label>URL DE IMAGEN *</label>
+                <input type="url" id="maq-imagen" placeholder="https://..." required>
+            </div>
+            <div class="form-campo">
+                <label>DESCRIPCIÓN *</label>
+                <textarea id="maq-descripcion" rows="3" placeholder="Descripción del equipo..." required></textarea>
+            </div>
+            <label class="admin-checkbox-label">
+                <input type="checkbox" id="maq-disponible" checked>
+                <span>Disponible para alquiler</span>
+            </label>
+
+            <div class="form-error" id="maquina-error" style="display:none;"></div>
+
+            <div class="form-fila-2" style="margin-top:0.5rem;">
+                <button type="button" class="btn-cancelar-modal" onclick="cerrarModalMaquina()">CANCELAR</button>
+                <button type="submit" class="btn-enviar-proforma" id="btn-guardar-maquina">GUARDAR</button>
+            </div>
+        </form>
+    </div>
+</div>
